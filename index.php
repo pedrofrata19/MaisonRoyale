@@ -1,14 +1,11 @@
 <?php
-// Ponto de entrada unico do sistema Maison Royale.
-// Todas as requisicoes passam por aqui atraves de index.php?acao=...
+
 
 session_start();
 
 require_once __DIR__ . "/config/database.php";
 
-/* ------------------------------------------------------------------ */
-/* Funcoes auxiliares (usadas pelos controllers e pelas views)         */
-/* ------------------------------------------------------------------ */
+
 
 function e($valor)
 {
@@ -35,7 +32,7 @@ function redirecionar($acao, $texto = "", $tipo = "sucesso")
         $_SESSION["flash"] = ["tipo" => $tipo, "texto" => $texto];
     }
 
-    // $acao e sempre um valor interno (literal ou literal + id inteiro).
+
     header("Location: index.php?acao=" . $acao);
     exit;
 }
@@ -47,7 +44,6 @@ function old($campo, $padrao = "")
     return e($valor);
 }
 
-// Caminhos salvos pelo upload sao relativos; URLs antigas continuam valendo.
 function urlImagem($caminho)
 {
     $caminho = trim((string) $caminho);
@@ -88,15 +84,12 @@ function exigirAdmin()
     }
 }
 
-/* ------------------------------------------------------------------ */
-/* Roteamento                                                          */
-/* ------------------------------------------------------------------ */
 
 $acao = $_GET["acao"] ?? "login";
 
 switch ($acao) {
 
-    /* ---------- Autenticacao ---------- */
+  
     case "login":
         require __DIR__ . "/app/views/auth/login.php";
         break;
@@ -120,7 +113,6 @@ switch ($acao) {
         (new AuthController())->sair();
         break;
 
-    /* ---------- Area do cliente ---------- */
     case "painel":
         exigirLogin();
         require __DIR__ . "/app/views/painel.php";
@@ -181,7 +173,7 @@ switch ($acao) {
         (new ReservaController())->cancelar();
         break;
 
-    /* ---------- Area administrativa ---------- */
+   
     case "admin_quartos":
         exigirAdmin();
         require_once __DIR__ . "/app/controllers/QuartoController.php";
@@ -206,7 +198,7 @@ switch ($acao) {
             redirecionar("admin_quartos", "Quarto nao encontrado.", "erro");
         }
 
-        // Se voltou de uma validacao com erro, mostra os dados digitados.
+   
         if (!empty($_SESSION["old"]["id"]) && (int) $_SESSION["old"]["id"] === (int) $quarto["id"]) {
             foreach (["nome", "categoria", "descricao", "capacidade", "preco", "imagem"] as $campo) {
                 if (array_key_exists($campo, $_SESSION["old"])) {
