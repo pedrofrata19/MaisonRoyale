@@ -1,1 +1,0 @@
-<?php // Administração de usuários. ?>

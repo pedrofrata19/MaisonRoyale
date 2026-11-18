@@ -1,1 +1,0 @@
-<?php // Rodapé das páginas. ?>
