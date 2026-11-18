@@ -39,6 +39,6 @@ CREATE TABLE reservas (
     FOREIGN KEY (quarto_id) REFERENCES quartos(id) ON DELETE RESTRICT
 );
 
--- Indice para acelerar a verificacao de sobreposicao de datas (RN01/RN07).
+
 CREATE INDEX idx_reservas_disponibilidade
     ON reservas (quarto_id, status, check_in, check_out);
