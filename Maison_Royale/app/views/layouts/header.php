@@ -1,0 +1,1 @@
+<?php // Cabeçalho das páginas. ?>
