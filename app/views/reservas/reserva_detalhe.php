@@ -1,7 +1,6 @@
 <?php
 $titulo = "Detalhes da reserva";
 require __DIR__ . "/../layouts/header.php";
-require __DIR__ . "/../layouts/menu.php";
 
 $diarias = (new DateTime($reserva['check_in']))->diff(new DateTime($reserva['check_out']))->days;
 ?>

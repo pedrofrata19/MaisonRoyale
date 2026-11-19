@@ -1,7 +1,6 @@
 <?php
 $titulo = "Painel";
 require __DIR__ . "/layouts/header.php";
-require __DIR__ . "/layouts/menu.php";
 ?>
 
 <section class="painel">

@@ -6,9 +6,9 @@
         <a href="index.php?acao=minhas_reservas">Minhas reservas</a>
 
         <?php if (eAdmin()): ?>
-            <a href="index.php?acao=admin_quartos">Admin · Quartos</a>
-            <a href="index.php?acao=admin_reservas">Admin · Reservas</a>
-            <a href="index.php?acao=admin_usuarios">Admin · Usuários</a>
+            <a href="index.php?acao=admin_quartos">Quartos</a>
+            <a href="index.php?acao=admin_reservas">Reservas</a>
+            <a href="index.php?acao=admin_usuarios">Usuários</a>
         <?php endif; ?>
 
         <span class="usuario-logado">Olá, <?= e($_SESSION["nome"]) ?></span>

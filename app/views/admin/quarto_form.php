@@ -1,7 +1,6 @@
 <?php
 $titulo = $quarto ? 'Editar quarto' : 'Cadastrar quarto';
 require __DIR__ . "/../layouts/header.php";
-require __DIR__ . "/../layouts/menu.php";
 
 $edicao = (bool) $quarto;
 ?>

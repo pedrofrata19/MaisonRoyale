@@ -1,7 +1,6 @@
 <?php
 $titulo = "Reservar quarto";
 require __DIR__ . "/../layouts/header.php";
-require __DIR__ . "/../layouts/menu.php";
 
 $preco = (float) $quarto['preco'];
 ?>

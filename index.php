@@ -55,7 +55,9 @@ function urlImagem($caminho)
         return $caminho;
     }
 
-    return "/Maison_Royale/" . ltrim($caminho, "/");
+    $base = rtrim(str_replace("\\", "/", dirname($_SERVER["SCRIPT_NAME"] ?? "")), "/");
+
+    return $base . "/" . ltrim($caminho, "/");
 }
 
 function usuarioLogado()
@@ -85,7 +87,7 @@ function exigirAdmin()
 }
 
 
-$acao = $_GET["acao"] ?? "login";
+$acao = $_GET["acao"] ?? "quartos";
 
 switch ($acao) {
 

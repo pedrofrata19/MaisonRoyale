@@ -1,7 +1,7 @@
 <?php
 $titulo = "Quartos";
+$banner = true;
 require __DIR__ . "/../layouts/header.php";
-require __DIR__ . "/../layouts/menu.php";
 
 $checkIn = $_GET['check_in'] ?? '';
 $checkOut = $_GET['check_out'] ?? '';
@@ -13,7 +13,7 @@ $categoriaFiltro = $_GET['categoria'] ?? '';
     <h1>Nossas acomodações</h1>
     <p>Consulte a disponibilidade e escolha o quarto ideal para a sua estadia.</p>
 
-    <form method="GET" action="index.php" class="filtro">
+    <form method="GET" action="index.php" class="filtro" id="busca">
         <input type="hidden" name="acao" value="quartos">
 
         <div>
